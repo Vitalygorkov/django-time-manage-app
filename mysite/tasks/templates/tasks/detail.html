@@ -1,0 +1,6 @@
+<h1>{{ task.task_text }}</h1>
+<ul>
+{% for choice in task.choice_set.all %}
+    <li>{{ TaskUnder.taskunder_text }}</li>
+{% endfor %}
+</ul>
