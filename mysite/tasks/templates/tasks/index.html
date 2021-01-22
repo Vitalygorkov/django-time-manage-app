@@ -1,9 +1,12 @@
 {% if latest_task_list %}
-    <ul>
+    <dl>
     {% for task in latest_task_list %}
-        <li><a href="/tasks/{{ task.id }}/">{{ task.task_text }}</a></li>
+
+        <dt><a href="/tasks/{{ task.id }}/">{{ task.task_text }}</a></dt>
+        <dd>{{ task.parent_category }}</dd>
+        <dd>{{ task.task_descr }}</dd>
     {% endfor %}
-    </ul>
+    </dl>
 {% else %}
     <p>No tasks are available.</p>
 {% endif %}
