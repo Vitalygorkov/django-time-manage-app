@@ -1,12 +1,19 @@
-{% if latest_task_list %}
-    <dl>
-    {% for task in latest_task_list %}
 
-        <dt><a href="/tasks/{{ task.id }}/">{{ task.task_text }}</a></dt>
-        <dd>{{ task.parent_category }}</dd>
-        <dd>{{ task.task_descr }}</dd>
+<head>
+  <meta charset="utf-8">
+</head>
+<dl>
+Задачи по категориям
+{% for cat in category_list %}
+    <dl>{{ cat.category_name }}</dl>
+    {% for task in latest_task_list %}
+        {% if task.category == cat %}
+            <dt><a href="/tasks/{{ task.id }}/">{{ task.task_text }}</a></dt>
+            {% for place in task.places.all %}
+                {{ place }} ,
+            {% endfor %}
+        {% endif %}
     {% endfor %}
-    </dl>
-{% else %}
-    <p>No tasks are available.</p>
-{% endif %}
+{% endfor %}
+</dl>
+Задачи по местам
