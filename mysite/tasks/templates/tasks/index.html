@@ -4,18 +4,19 @@
 </head>
 
 <b>Задачи по категориям</b>
+
 {% for cat in category_list %}
-    <ul>{{ cat.category_name }}</ul>
-    {% for task in latest_task_list %}
+    <select name = {{ cat }}><ul>{{ cat.category_name }}</ul>
+    {% for task in latest_task_list %}Гараж
         {% if task.category == cat %}
-            <li><a href="/tasks/{{ task.id }}/">{{ task.task_text }}</a></li>
+    <option value = "name_option"><li><a href="/tasks/{{ task.id }}/">{{ task.task_text }}</a></li></option>
             {% for place in task.places.all %}
                 {{ place }} ,
             {% endfor %}
         {% endif %}
     {% endfor %}
 {% endfor %}
-
+</select>
 
 
 
@@ -36,3 +37,9 @@
     {% endfor %}
 {% endfor %}
 </ul>
+
+<form action="/your-name/" method="post">
+    <label for="your_name">Your name: </label>
+    <input id="your_name" type="text" name="your_name" value="{{ current_name }}">
+    <input type="submit" value="OK">
+</form>
