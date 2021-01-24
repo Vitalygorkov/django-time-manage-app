@@ -3,6 +3,7 @@ from django.db import models
 class Place(models.Model):
     place_name = models.CharField(max_length=200)
     parent_category = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True)
+    tasks = models.ManyToManyField('Task')
     # task_in_place = models.ManyToManyField(Task, blank=True)
     # task_in_place = models.ManyToManyField(Task, null=True, blank=True)
     def __str__(self):

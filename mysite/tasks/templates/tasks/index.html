@@ -2,18 +2,37 @@
 <head>
   <meta charset="utf-8">
 </head>
-<dl>
-Задачи по категориям
+
+<b>Задачи по категориям</b>
 {% for cat in category_list %}
-    <dl>{{ cat.category_name }}</dl>
+    <ul>{{ cat.category_name }}</ul>
     {% for task in latest_task_list %}
         {% if task.category == cat %}
-            <dt><a href="/tasks/{{ task.id }}/">{{ task.task_text }}</a></dt>
+            <li><a href="/tasks/{{ task.id }}/">{{ task.task_text }}</a></li>
             {% for place in task.places.all %}
                 {{ place }} ,
             {% endfor %}
         {% endif %}
     {% endfor %}
 {% endfor %}
-</dl>
-Задачи по местам
+
+
+
+
+  <b>Задачи по Местам (сортировка)</b>
+<ul>
+{% for place in place_list %}
+    <ul>{{ place }}</ul>
+    {% for task in latest_task_list %}
+<!--        {{ task }}-->
+<!--        {{ task.places.all }}-->
+        {% for pl in task.places.all %}
+<!--            {{ task }}-->
+<!--            {{ pl }}-->
+            {% if pl == place %}
+                <li>{{ task.task_text }}</li>
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+{% endfor %}
+</ul>
