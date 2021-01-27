@@ -18,9 +18,11 @@ from django.urls import path, include
 
 from mainapp.views import index
 
+
 urlpatterns = [
     path('tasks/', include('tasks.urls')),
     path('admin/', admin.site.urls),
     path('', index),
+    path('api/', include('mainapp.api.urls'))
 
 ]

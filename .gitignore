@@ -1,3 +1,6 @@
 /sources.txt
 /mysite/mysite/config.py
 /mysite/db.sqlite3
+/mysite/financeapp/uni-py.py
+/mysite/financeapp/query_stat.py
+/mysite/financeapp/query.json
