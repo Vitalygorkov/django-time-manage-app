@@ -23,6 +23,7 @@ urlpatterns = [
     path('tasks/', include('tasks.urls')),
     path('admin/', admin.site.urls),
     path('', index),
-    path('api/', include('mainapp.api.urls'))
+    path('api/', include('mainapp.api.urls')),
+    path('financeapp/', include('financeapp.urls')),
 
 ]
