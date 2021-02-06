@@ -4,3 +4,6 @@
 /mysite/financeapp/uni-py.py
 /mysite/financeapp/query_stat.py
 /mysite/financeapp/query.json
+/mysite/financeapp/get_a_percentage.py
+/mysite/financeapp/get_a_eth_vol.py
+/mysite/financeapp/tests.py
